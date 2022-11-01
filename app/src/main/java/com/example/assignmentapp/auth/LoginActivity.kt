@@ -37,4 +37,5 @@ class LoginActivity : AppCompatActivity(), AuthListner {
     override fun onFailed(message: String) {
         Toast.makeText(this@LoginActivity, message, Toast.LENGTH_LONG).show()
     }
+    //
 }
