@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.assignmentapp.auth.AuthViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:background="@color/white"
+        android:filterTouchesWhenObscured="true"
+        android:focusableInTouchMode="true"
+        android:gravity="center"
+        tools:context=".auth.LoginActivity">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_centerInParent="true"
+            android:paddingTop="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <ImageView
+                    android:id="@+id/ivLogin"
+                    android:layout_width="140dp"
+                    android:layout_height="120dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_gravity="center"
+                    android:filterTouchesWhenObscured="true"
+                    app:srcCompat="@drawable/register" />
+
+                <TextView
+                    android:id="@+id/tvHintCreateAccount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/font_regular"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="Already have an Account?"
+                    android:textColor="@color/purple_700"
+                    android:textSize="30dp"
+                    android:visibility="visible" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilEmail"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp">
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/etEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:digits="@string/validate_email"
+                        android:filterTouchesWhenObscured="true"
+                        android:fontFamily="@font/font_regular"
+                        android:hint="Email Id"
+                        android:imeOptions="flagForceAscii"
+                        android:inputType="textEmailAddress"
+                        android:text="@={viewModel.email}"
+                        android:textSize="14dp"
+                        tools:ignore="HardcodedText" />
+
+                    <requestFocus />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilPassword"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    app:passwordToggleEnabled="true">
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/etPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:digits="1234567890"
+                        android:filterTouchesWhenObscured="true"
+                        android:fontFamily="@font/font_regular"
+                        android:hint="Password"
+                        android:imeOptions="actionDone"
+                        android:inputType="numberPassword"
+                        android:maxLength="6"
+                        android:text="@={viewModel.paswrd}"
+                        android:textColor="@color/black"
+                        android:textSize="14dp" />
+
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <Button
+                    android:id="@+id/btnLogin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="30dp"
+                    android:background="@color/purple_700"
+                    android:filterTouchesWhenObscured="true"
+                    android:fontFamily="@font/font_regular"
+                    android:onClick="@{viewModel::onLoginButtonClick}"
+                    android:padding="10dp"
+                    android:text="Login"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/tvGoToRegister"
+                    style="@style/parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:background="?selectableItemBackground"
+                    android:filterTouchesWhenObscured="true"
+                    android:fontFamily="@font/font_regular"
+                    android:gravity="center"
+                    android:text="I don't have an Account! Register"
+                    android:textColor="#2278d4"
+                    android:textSize="14dp"
+                    android:visibility="visible" />
+
+            </LinearLayout>
+        </ScrollView>
+
+
+    </RelativeLayout>
+</layout>
